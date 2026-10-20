@@ -27,18 +27,10 @@ static void window_load(Window *window) {
   bitmap_layer_set_compositing_mode(s_tick_layer, GCompOpSet);
   bitmap_layer_set_alignment(s_tick_layer, GAlignCenter);
   layer_add_child(root, bitmap_layer_get_layer(s_tick_layer));
-  s_stage = text_layer_create(GRect(0, bounds.size.h - 26, bounds.size.w, 24));
-  text_layer_set_background_color(s_stage, GColorClear);
-  text_layer_set_text_color(s_stage, GColorBlack);
-  text_layer_set_font(s_stage, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-  text_layer_set_text_alignment(s_stage, GTextAlignmentCenter);
-  text_layer_set_text(s_stage, "Adult female");
-  layer_add_child(root, text_layer_get_layer(s_stage));
 }
 static void window_unload(Window *window) {
   text_layer_destroy(s_common);
   text_layer_destroy(s_scientific);
-  text_layer_destroy(s_stage);
   bitmap_layer_destroy(s_tick_layer);
   gbitmap_destroy(s_tick);
 }
